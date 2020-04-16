@@ -1,5 +1,9 @@
 import Vue from "vue";
+// @ts-ignore
 import App from "./App.vue";
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import router from "./router";
 import store from "./store";
 import { Auth0Plugin, onAuth } from "@bcwdev/auth0-vue";
@@ -17,11 +21,12 @@ Vue.use(Auth0Plugin, {
     );
   }
 });
+Vue.use(BootstrapVue)
 
 new Vue({
   router,
   store,
-  render: function(h) {
+  render: function (h) {
     return h(App);
   }
 }).$mount("#app");

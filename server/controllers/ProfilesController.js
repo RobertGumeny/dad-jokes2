@@ -8,8 +8,8 @@ export class ProfilesController extends BaseController {
   constructor() {
     super("api/profile");
     this.router
-      .get("/:email/jokes", this.getJokesByUserEmail)
       .use(auth0Provider.getAuthorizedUserInfo)
+      .get("/:email/jokes", this.getJokesByUserEmail)
       .get("", this.getUserProfile)
       .put("/:id", this.edit);
   }

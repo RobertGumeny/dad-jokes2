@@ -1,5 +1,5 @@
 <template>
-  <div class="create-joke col-3 mx-auto">
+  <div class="create-joke col-12">
     <div class="form-group">
       <label for>Setup</label>
       <input
@@ -18,7 +18,8 @@
         v-model="newJoke.punchline"
       />
     </div>
-    <button type="button" class="btn btn-primary" @click="addJoke()">Add Joke</button>
+    <b-button variant="success" @click="addJoke()">Add Joke</b-button>
+    <!-- <button type="button" class="btn btn-primary" @click="addJoke()">Add Joke</button> -->
   </div>
 </template>
 
@@ -37,6 +38,7 @@ export default {
     addJoke() {
       this.$store.dispatch("addJoke", this.newJoke);
       this.newJoke = {};
+      this.$bvModal.hide("modal-1");
     }
   },
   components: {}
