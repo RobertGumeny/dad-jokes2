@@ -1,5 +1,5 @@
 <template>
-  <div class="create-joke">
+  <div class="create-joke col-3 mx-auto">
     <div class="form-group">
       <label for>Setup</label>
       <input

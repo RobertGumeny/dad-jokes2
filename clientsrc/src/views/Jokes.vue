@@ -1,14 +1,16 @@
 <template>
-  <div class="jokes">
-    <h1>THIS IS THE JOKES PAGES</h1>
+  <div class="jokes text-center">
     <CreateJoke v-if="$auth.isAuthenticated" />
     <small class="text-danger" v-else>You must log in to create a joke.</small>
+    <!-- Jokes displayed below -->
+    <Joke v-for="joke in jokes" :jokeData="joke" :key="joke._id"></Joke>
   </div>
 </template>
 
 
 <script>
 import CreateJoke from "../components/CreateJoke";
+import Joke from "../components/Joke";
 export default {
   name: "jokes",
   data() {
@@ -18,9 +20,16 @@ export default {
     console.log(this.$auth);
     this.$store.dispatch("getJokes");
   },
-  computed: {},
+  computed: {
+    jokes() {
+      return this.$store.state.jokes;
+    }
+  },
   methods: {},
-  components: { CreateJoke }
+  components: {
+    CreateJoke,
+    Joke
+  }
 };
 </script>
 
