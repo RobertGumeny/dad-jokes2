@@ -1,9 +1,15 @@
 <template>
-  <div class="joke">
+  <b-card bg-variant="light" border-variant="info" :header="jokeData.setup" align="center">
+    <b-card-text>
+      <h5>{{jokeData.punchline}}</h5>
+      <p class="pt-5">Created by: {{jokeData.creator.name}}</p>
+    </b-card-text>
+  </b-card>
+
+  <!-- <div class="joke">
     <h5>{{jokeData.setup}}</h5>
-    <h5>{{jokeData.punchline}}</h5>
-    <p>Created by: {{jokeData.creator.name}}</p>
-  </div>
+
+  </div>-->
 </template>
 
 
@@ -22,4 +28,7 @@ export default {
 
 
 <style scoped>
+p {
+  font-size: small;
+}
 </style>

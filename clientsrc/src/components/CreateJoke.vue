@@ -18,7 +18,7 @@
         v-model="newJoke.punchline"
       />
     </div>
-    <b-button variant="success" @click="addJoke()">Add Joke</b-button>
+    <b-button variant="info" @click="addJoke()">Add Joke</b-button>
     <!-- <button type="button" class="btn btn-primary" @click="addJoke()">Add Joke</button> -->
   </div>
 </template>
@@ -47,4 +47,7 @@ export default {
 
 
 <style scoped>
+.close {
+  color: red;
+}
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <navbar />
+    <Navigation />
     <router-view />
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/navbar";
+import Navigation from "@/components/Navigation";
 import { onAuth } from "@bcwdev/auth0-vue";
 export default {
   name: "App",
@@ -18,10 +18,13 @@ export default {
     }
   },
   components: {
-    Navbar
+    Navigation
   }
 };
 </script>
 
 <style>
+body {
+  background-color: rgb(225, 243, 255);
+}
 </style>

@@ -1,25 +1,32 @@
 <template>
-  <div class="jokes text-center">
-    <div v-if="$auth.isAuthenticated">
-      <b-button variant="success" v-b-modal.modal-1>Submit a Joke</b-button>
-
-      <b-modal id="modal-1" title="Submit a Joke" hide-footer-ok>
-        <CreateJoke />
-        <template v-slot:modal-footer>
-          <div class="w-100"></div>
-        </template>
-      </b-modal>
+  <div class="jokes text-center container-fluid">
+    <div class="row">
+      <div class="col-12 my-1 text-center">
+        <div v-if="$auth.isAuthenticated">
+          <button
+            type="button"
+            class="btn btn-info"
+            data-toggle="modal"
+            data-target="#jokeModal"
+          >Submit a Joke</button>
+          <JokeModal id="jokeModal"></JokeModal>
+        </div>
+        <small class="text-danger" v-else>You must log in to create a joke.</small>
+      </div>
     </div>
-    <!-- <CreateJoke v-if="$auth.isAuthenticated" /> -->
-    <small class="text-danger" v-else>You must log in to create a joke.</small>
     <!-- Jokes displayed below -->
-    <Joke v-for="joke in jokes" :jokeData="joke" :key="joke._id"></Joke>
+    <div>
+      <b-card-group columns>
+        <Joke v-for="joke in jokes" :jokeData="joke" :key="joke._id"></Joke>
+      </b-card-group>
+    </div>
   </div>
 </template>
 
 
 <script>
 import CreateJoke from "../components/CreateJoke";
+import JokeModal from "../components/JokeModal";
 import Joke from "../components/Joke";
 export default {
   name: "jokes",
@@ -38,7 +45,8 @@ export default {
   methods: {},
   components: {
     CreateJoke,
-    Joke
+    Joke,
+    JokeModal
   }
 };
 </script>

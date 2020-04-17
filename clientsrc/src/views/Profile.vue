@@ -1,7 +1,8 @@
 <template>
-  <div class="about text-center">
-    <h1>Welcome {{ profile.name }}</h1>
-    <img class="rounded" :src="profile.picture" alt="" />
+  <div class="about text-center text-info">
+    <h2 class="text-info">{{ profile.name }}'s Profile</h2>
+    <img class="border border-dark rounded-circle" :src="profile.picture" alt />
+    <h5>Jokes Submitted:</h5>
     <p>{{ profile.email }}</p>
   </div>
 </template>
